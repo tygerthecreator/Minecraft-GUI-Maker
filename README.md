@@ -82,9 +82,9 @@ Slot layout export positions use the slot's usable top-left pixel rather than th
 
 ## Save vs Layout Export
 
-`Save Project` creates an editable `.mcgui.json` file. Use this when you want to come back later and continue working. Custom images and slot icons are embedded as data URLs, so the file is self-contained. Custom fonts are not embedded; only the active font name is saved.
+`Save Project` creates an editable `.mcgui.json` file. Use this when you want to come back later and continue working. Custom images and slot icons are embedded as data URLs, so the file is self-contained. Custom font files are not embedded in project saves. Text objects save their content, position, size, color, and font reference, but not the actual `.ttf`, `.otf`, `.woff`, or `.woff2` file.
 
-When a project is loaded, text uses the bundled Silkscreen font by default. If the project was saved with a custom font name and the editor already has a currently active custom font with that same name, that active font is used instead.
+When a project is loaded, text falls back to the bundled Silkscreen font unless the matching custom font has been imported again during the current editor session. This keeps project files from accidentally redistributing font files.
 
 `Export Layout` creates a lightweight `.layout.json` file. Use this when you only need the GUI layout data and do not want embedded image data. Images and text are listed with position, size, layer, and `bakedIntoTexture` metadata. Slot icons are listed by name only.
 
