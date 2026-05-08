@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "width": 176,
+  "height": 166,
+  "slots": [
+    {
+      "x": 51,
+      "y": 12,
+      "visible": true
+    },
+    {
+      "x": 51,
+      "y": 48,
+      "visible": true
+    },
+    {
+      "x": 111,
+      "y": 30,
+      "visible": false
+    },
+
+    {
+      "x": 3,
+      "y": 79,
+      "visible": true
+    },
+    {
+      "x": 21,
+      "y": 79,
+      "visible": true
+    },
+    {
+      "x": 39,
+      "y": 79,
+      "visible": true
+    },
+    {
+      "x": 57,
+      "y": 79,
+      "visible": true
+    },
+    {
+      "x": 75,
+      "y": 79,
+      "visible": true
+    },
+    {
+      "x": 93,
+      "y": 79,
+      "visible": true
+    },
+    {
+      "x": 111,
+      "y": 79,
+      "visible": true
+    },
+    {
+      "x": 129,
+      "y": 79,
+      "visible": true
+    },
+    {
+      "x": 147,
+      "y": 79,
+      "visible": true
+    },
+
+    {
+      "x": 3,
+      "y": 97,
+      "visible": true
+    },
+    {
+      "x": 21,
+      "y": 97,
+      "visible": true
+    },
+    {
+      "x": 39,
+      "y": 97,
+      "visible": true
+    },
+    {
+      "x": 57,
+      "y": 97,
+      "visible": true
+    },
+    {
+      "x": 75,
+      "y": 97,
+      "visible": true
+    },
+    {
+      "x": 93,
+      "y": 97,
+      "visible": true
+    },
+    {
+      "x": 111,
+      "y": 97,
+      "visible": true
+    },
+    {
+      "x": 129,
+      "y": 97,
+      "visible": true
+    },
+    {
+      "x": 147,
+      "y": 97,
+      "visible": true
+    },
+
+    {
+      "x": 3,
+      "y": 115,
+      "visible": true
+    },
+    {
+      "x": 21,
+      "y": 115,
+      "visible": true
+    },
+    {
+      "x": 39,
+      "y": 115,
+      "visible": true
+    },
+    {
+      "x": 57,
+      "y": 115,
+      "visible": true
+    },
+    {
+      "x": 75,
+      "y": 115,
+      "visible": true
+    },
+    {
+      "x": 93,
+      "y": 115,
+      "visible": true
+    },
+    {
+      "x": 111,
+      "y": 115,
+      "visible": true
+    },
+    {
+      "x": 129,
+      "y": 115,
+      "visible": true
+    },
+    {
+      "x": 147,
+      "y": 115,
+      "visible": true
+    },
+
+    {
+      "x": 3,
+      "y": 137,
+      "visible": true
+    },
+    {
+      "x": 21,
+      "y": 137,
+      "visible": true
+    },
+    {
+      "x": 39,
+      "y": 137,
+      "visible": true
+    },
+    {
+      "x": 57,
+      "y": 137,
+      "visible": true
+    },
+    {
+      "x": 75,
+      "y": 137,
+      "visible": true
+    },
+    {
+      "x": 93,
+      "y": 137,
+      "visible": true
+    },
+    {
+      "x": 111,
+      "y": 137,
+      "visible": true
+    },
+    {
+      "x": 129,
+      "y": 137,
+      "visible": true
+    },
+    {
+      "x": 147,
+      "y": 137,
+      "visible": true
+    }
+  ],
+  "images": [
+    {
+      "name": "inventory_slot_large.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAXElEQVR4AezWsQkAMAgEQMlSLuIobuHQiab43oBN+BDBQng4LFyquqcrIvaSfGYmk+XucoMya/wz6JmYdKSDAJcBFN2GdF0xzJMOFN2GdF0xzH9IV/dc3V2TVX4HAAD//3o7UiYAAAAGSURBVAMAdGlmcQGcIYEAAAAASUVORK5CYII=",
+      "x": 107,
+      "y": 26,
+      "width": 26,
+      "height": 26,
+      "layer": 1
+    },
+    {
+      "name": "inventory_arrow_long.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAPCAYAAADgbT9oAAAAZElEQVR4AbTRQQrAMAhE0dY7ewoP3fIXhRKMC50EJgvBx4B2NV9EPNVqGwat8BFc4WN4h0vgDJfBK24coBOgLFjMpY0BCfgR2N1v4+uEZlmwmEsbf6gU/qMyeEUlcIaO4R0K/AIAAP//DAR0gAAAAAZJREFUAwDmjFa/GmbDoQAAAABJRU5ErkJggg==",
+      "x": 76,
+      "y": 31,
+      "width": 22,
+      "height": 15,
+      "layer": 2
+    },
+    {
+      "name": "inventory_fire.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAAc0lEQVR4AZSQAQrAIAwDN//cV/TRmymkhFIVRdGaSyqOZw53/+Z2nOTCdKQLECYze5lCvavBQQ8TDjcrTDUVAUit96zDBOhmDbqraXefnfCcatRa9TQpsOpCJk0dqOmqDxWYtNvBZ6cO1HTVl7+nkJ4R9AMAAP//Z/tRWQAAAAZJREFUAwDOhTe7C7rhAAAAAABJRU5ErkJggg==",
+      "x": 53,
+      "y": 33,
+      "width": 13,
+      "height": 13,
+      "layer": 3
+    }
+  ],
+  "texts": [
+    {
+      "text": "Inventory",
+      "x": 3,
+      "y": 70,
+      "fontSize": 8,
+      "color": "#404040",
+      "layer": 4
+    },
+    {
+      "text": "Furnace",
+      "x": 62,
+      "y": 4,
+      "fontSize": 8,
+      "color": "#404040",
+      "layer": 5
+    }
+  ]
+}

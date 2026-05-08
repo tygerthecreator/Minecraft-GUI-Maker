@@ -1,0 +1,17 @@
+[
+  {
+    "id": "inventory_gui",
+    "name": "Inventory GUI",
+    "path": "templates/inventory_gui_template.json"
+  },
+  {
+    "id": "furnace_gui",
+    "name": "Furnace GUI",
+    "path": "templates/furnace_gui_template.json"
+  },
+  {
+    "id": "crafting_gui",
+    "name": "Crafting Table GUI",
+    "path": "templates/crafting_gui_template.json"
+  }
+]

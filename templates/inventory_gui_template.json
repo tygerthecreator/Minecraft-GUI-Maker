@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "width": 176,
+  "height": 166,
+  "slots": [
+    {
+      "x": 149,
+      "y": 23
+    },
+    {
+      "x": 93,
+      "y": 13
+    },
+    {
+      "x": 111,
+      "y": 13
+    },
+    {
+      "x": 93,
+      "y": 31
+    },
+    {
+      "x": 111,
+      "y": 31
+    },
+    {
+      "x": 3,
+      "y": 3
+    },
+    {
+      "x": 3,
+      "y": 21
+    },
+    {
+      "x": 3,
+      "y": 39
+    },
+    {
+      "x": 3,
+      "y": 57
+    },
+    {
+      "x": 3,
+      "y": 79
+    },
+    {
+      "x": 21,
+      "y": 79
+    },
+    {
+      "x": 39,
+      "y": 79
+    },
+    {
+      "x": 57,
+      "y": 79
+    },
+    {
+      "x": 75,
+      "y": 79
+    },
+    {
+      "x": 93,
+      "y": 79
+    },
+    {
+      "x": 111,
+      "y": 79
+    },
+    {
+      "x": 129,
+      "y": 79
+    },
+    {
+      "x": 147,
+      "y": 79
+    },
+    {
+      "x": 3,
+      "y": 97
+    },
+    {
+      "x": 21,
+      "y": 97
+    },
+    {
+      "x": 39,
+      "y": 97
+    },
+    {
+      "x": 57,
+      "y": 97
+    },
+    {
+      "x": 75,
+      "y": 97
+    },
+    {
+      "x": 93,
+      "y": 97
+    },
+    {
+      "x": 111,
+      "y": 97
+    },
+    {
+      "x": 129,
+      "y": 97
+    },
+    {
+      "x": 147,
+      "y": 97
+    },
+    {
+      "x": 3,
+      "y": 115
+    },
+    {
+      "x": 21,
+      "y": 115
+    },
+    {
+      "x": 39,
+      "y": 115
+    },
+    {
+      "x": 57,
+      "y": 115
+    },
+    {
+      "x": 75,
+      "y": 115
+    },
+    {
+      "x": 93,
+      "y": 115
+    },
+    {
+      "x": 111,
+      "y": 115
+    },
+    {
+      "x": 129,
+      "y": 115
+    },
+    {
+      "x": 147,
+      "y": 115
+    },
+    {
+      "x": 3,
+      "y": 137
+    },
+    {
+      "x": 21,
+      "y": 137
+    },
+    {
+      "x": 39,
+      "y": 137
+    },
+    {
+      "x": 57,
+      "y": 137
+    },
+    {
+      "x": 75,
+      "y": 137
+    },
+    {
+      "x": 93,
+      "y": 137
+    },
+    {
+      "x": 111,
+      "y": 137
+    },
+    {
+      "x": 129,
+      "y": 137
+    },
+    {
+      "x": 147,
+      "y": 137
+    },
+    {
+      "x": 72,
+      "y": 57
+    }
+  ],
+  "images": [
+    {
+      "name": "inventory_avatar_preview.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAABICAYAAABbRM0oAAAA8klEQVR4AezS0QnEIBBFUUlTaSSlpAsrsyo3szDgtxC5kbvsYH6Mz3dynOfZd5haaz/K82utla/Pfd/lf5nnPlv8vQyVURllFjTgZ7ag5KkjlJmqbcEmZRaUPHWEMlO1LdikzIKSp45QZqq2lzfF65WJFoijDFElMikTLRBHGaJKZFImWiCOMkSVyKRMtEAcZYgqkUmZaIE4ytBUMo8y2QRtVYYmknmUySZoqzI0kcyjTDZBW5WhiWQeZbIJ2qoMTSTzKJNN0FZlSCJjFmXGNkjPypA0xizKjG2QnpUhaYxZlBnbID3vJXNdV+m9f37iC/kBAAD//09u0SUAAAAGSURBVAMA0VtdeBmortQAAAAASUVORK5CYII=",
+      "x": 21,
+      "y": 3,
+      "width": 51,
+      "height": 72
+    },
+    {
+      "name": "inventory_arrow.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAANCAYAAACgu+4kAAAAXElEQVR4AaSPQQpAIQgF//fOnsJDF7MIQpLUgtdCnFHlSzwzG1FbSgAcSdKCSFISnCRlgZcIt90C5ANDrbUBIEHyJFDVX/huYZoPDLXWBgtuCXa4LPBwSXCCEUwAAAD//7QxJ50AAAAGSURBVAMA+6g+uy0Yh2kAAAAASUVORK5CYII=",
+      "x": 131,
+      "y": 25,
+      "width": 16,
+      "height": 13
+    },
+    {
+      "name": "inventory_slot_shield.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAmUlEQVR4AazOSQrDQAxE0SS3yC7k/mcK2fkYNq+hTHue4SPJVarW63HxWw14f74t1t6YBFgIzf/3RGZ1HNYHEGEhxJxZ5UG0EuAHERGWKg/s8JQAzVlKQJ24J8jrdnhLgOYs9wU4yWlbl/DwxnffBUk8WgcXOM2JSyE0nlofBBAYGGGGHjRzzSSAyAhL0IM2ZjYgJkvIPFc7AAAA//9b9WgNAAAABklEQVQDAMxSaCEEjDH/AAAAAElFTkSuQmCC",
+      "x": 73,
+      "y": 58,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "inventory_slot_boots.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAhUlEQVR4AdzQQQqEMBBE0Zm5xezE+59J3HkM5QVKWhBE3YiBojvVPwXp3+fmeWDAv+vnKL/LXY2XuvkCYBqHLwVI5REmnroJYJzVmwIsx5KOdoDBhms7YBjEPKpYb3AtQFNlCIqn5+Ve6xoAiDyokJ6XucqjFmBYZbCnyugxLUBzVbcDFgAAAP//UXpOfAAAAAZJREFUAwDBgVAhbrbesAAAAABJRU5ErkJggg==",
+      "x": 4,
+      "y": 58,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "inventory_slot_legs.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVR4AeyRUQqAQAhErVv0F93/TNFfxyjex8AqKEG7f7sw6I46DLraz9dfYNuPp0I07BwweF/nUoGeVsQJtIWv+VgB7ILKTeqAQe2CPBNJBbKByE8Bs/474GQgbhsORN450N0V1ay/onjiCwAA//9KUnfxAAAABklEQVQDAL1fSCFKU0H3AAAAAElFTkSuQmCC",
+      "x": 4,
+      "y": 40,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "inventory_slot_chest.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVR4AayPSwqAMBBD1Vu4E+9/JnHnMZRXiJR+Bj8phA6dl5BOw8/jD5iX9YxUFr4byHTs2xhJnIJSAI8yadG7xeGBSQEMX+UJoJYqPWkCiwfW04AkEklmjgQDK8bXQIlvb28D/sYfey3YweT7qgEAYEvscjNzFcAjYEvsSl0AAAD//3IDl/QAAAAGSURBVAMAS2FoIVIv5LQAAAAASUVORK5CYII=",
+      "x": 4,
+      "y": 22,
+      "width": 16,
+      "height": 16
+    },
+    {
+      "name": "inventory_slot_head.png",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAj0lEQVR4AczPQQqEQAwEwN39xd7E/79JvPkMpQ6BmUw8iAgONJl0Op3k97n5Xmrwn+a9QnXtcILGbV2+FdSySWdAoDGLIlejiVzsDBBX8YyBNSG28YfI21hu4FYIoT9E3sbOgOhskiY1Gv9AZxDklTgYmGBSNsGpZX4wICDU0AKnllEaEGlogatwalCJK+4AAAD//xB4gTYAAAAGSURBVAMAkaJYIVdpo6MAAAAASUVORK5CYII=",
+      "x": 4,
+      "y": 4,
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "texts": [
+    {
+      "text": "Crafting",
+      "x": 92,
+      "y": 4,
+      "fontSize": 8,
+      "color": "#404040"
+    }
+  ]
+}
