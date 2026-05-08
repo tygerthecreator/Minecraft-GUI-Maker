@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <title>Minecraft GUI Maker</title>
+
+  <style>
+    @font-face {
+      font-family: "Silkscreen";
+      src: url("./fonts/Silkscreen-Regular.ttf") format("truetype");
+      font-display: block;
+    }
+
+    :root {
+      --bg: #f4f1ea;
+      --surface: #ffffff;
+      --surface-muted: #f7f6f2;
+      --text: #202124;
+      --muted: #6d7069;
+      --line: #d7d4ca;
+      --line-strong: #bbb6aa;
+      --accent: #2f7d4f;
+      --accent-hover: #276a43;
+      --danger: #b33a32;
+      --danger-hover: #942f29;
+      --export: #946a1d;
+      --export-hover: #7c5918;
+      --canvas-bg: #d2d4d6;
+      --radius: 8px;
+      --shadow: 0 12px 32px rgba(34, 31, 26, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .app-shell {
+      width: min(100%, 1180px);
+      height: 100vh;
+      margin: 0 auto;
+      padding: 18px;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .header-status {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .editor-layout {
+      display: grid;
+      grid-template-columns: minmax(250px, 300px) minmax(0, 1fr);
+      gap: 14px;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    .panel,
+    .stage {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 0;
+      overflow: auto;
+    }
+
+    .control-group {
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .control-group:last-child {
+      border-bottom: 0;
+    }
+
+    .control-group > :not(.group-title) + :not(.group-title) {
+      margin-top: 10px;
+    }
+
+    .group-title {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .field span {
+      overflow-wrap: anywhere;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-width: 0;
+      min-height: 38px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+    }
+
+    input[type="number"] {
+      padding: 0 10px;
+    }
+
+    input[type="text"] {
+      padding: 0 10px;
+    }
+
+    select {
+      padding: 0 10px;
+    }
+
+    input[type="color"] {
+      padding: 4px;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      min-height: 18px;
+    }
+
+    input[type="file"] {
+      min-height: 42px;
+      padding: 6px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    input::file-selector-button {
+      min-height: 28px;
+      margin-right: 8px;
+      border: 1px solid var(--line-strong);
+      border-radius: 5px;
+      background: var(--surface-muted);
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .upload-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--surface-muted);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 750;
+      transition:
+        background-color 120ms ease,
+        border-color 120ms ease;
+    }
+
+    .upload-action:hover,
+    .upload-action:focus-within {
+      border-color: #989287;
+      background: #eeece6;
+    }
+
+    .upload-action:focus-within {
+      box-shadow: 0 0 0 3px rgba(47, 125, 79, 0.18);
+    }
+
+    .upload-action input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+
+    .font-status {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    input:focus-visible,
+    button:focus-visible {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(47, 125, 79, 0.18);
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      min-height: 40px;
+      padding: 0 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--surface-muted);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 750;
+      line-height: 1.1;
+      text-align: center;
+      transition:
+        background-color 120ms ease,
+        border-color 120ms ease,
+        color 120ms ease;
+    }
+
+    .button-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    button:hover:not(:disabled) {
+      border-color: #989287;
+      background: #eeece6;
+    }
+
+    button:disabled,
+    input:disabled {
+      cursor: not-allowed;
+      opacity: 0.48;
+    }
+
+    .button-primary {
+      border-color: rgba(47, 125, 79, 0.4);
+      background: #f4fbf6;
+      color: var(--accent);
+    }
+
+    .button-primary:hover:not(:disabled) {
+      border-color: rgba(47, 125, 79, 0.66);
+      background: #e7f4ec;
+      color: var(--accent-hover);
+    }
+
+    .button-danger {
+      border-color: rgba(179, 58, 50, 0.34);
+      background: #fff7f6;
+      color: var(--danger);
+    }
+
+    .button-danger:hover:not(:disabled) {
+      border-color: rgba(179, 58, 50, 0.6);
+      background: #f8e8e6;
+      color: var(--danger-hover);
+    }
+
+    .button-export {
+      border-color: var(--line-strong);
+      background: var(--surface-muted);
+      color: var(--text);
+    }
+
+    .button-export:hover:not(:disabled) {
+      border-color: #989287;
+      background: #eeece6;
+      color: var(--text);
+    }
+
+    .stage {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .stage-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;
+      padding: 0 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .stage-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .stage-title {
+      font-weight: 800;
+    }
+
+    .stage-size {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .zoom-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .zoom-controls button {
+      min-height: 30px;
+      min-width: 34px;
+      padding: 0 8px;
+    }
+
+    .zoom-value {
+      min-width: 50px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 750;
+      text-align: center;
+    }
+
+    .canvas-wrap {
+      min-height: 0;
+      padding: 16px;
+      overflow: auto;
+      background:
+        linear-gradient(45deg, rgba(0, 0, 0, 0.035) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0, 0, 0, 0.035) 25%, transparent 25%),
+        var(--surface-muted);
+      background-position: 0 0, 0 10px;
+      background-size: 20px 20px;
+    }
+
+    canvas {
+      display: block;
+      margin: auto;
+      border: 1px solid #111111;
+      border-radius: 4px;
+      background-color: var(--canvas-bg);
+      background-image:
+        linear-gradient(45deg, #c5c7c9 25%, transparent 25%),
+        linear-gradient(-45deg, #c5c7c9 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #c5c7c9 75%),
+        linear-gradient(-45deg, transparent 75%, #c5c7c9 75%);
+      background-position:
+        0 0,
+        0 12px,
+        12px -12px,
+        -12px 0;
+      background-size: 24px 24px;
+      cursor: crosshair;
+      image-rendering: pixelated;
+      touch-action: none;
+      box-shadow: 0 8px 22px rgba(34, 31, 26, 0.16);
+    }
+
+    @media (max-width: 840px) {
+      .editor-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        order: 2;
+      }
+
+      .stage {
+        order: 1;
+      }
+
+      .canvas-wrap {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .app-shell {
+        padding: 12px;
+      }
+
+      .app-header,
+      .stage-bar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .app-header {
+        gap: 4px;
+      }
+
+      .stage-bar {
+        gap: 2px;
+        padding: 10px 12px;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <h1>Minecraft GUI Maker</h1>
+      <div class="header-status">Pixel canvas editor</div>
+    </header>
+
+    <div class="editor-layout">
+      <aside class="panel controls" aria-label="Editor controls">
+        <section class="control-group" aria-labelledby="canvas-controls-title">
+          <h2 id="canvas-controls-title" class="group-title">Canvas</h2>
+          <div class="field-grid">
+            <label class="field">
+              <span>Width</span>
+              <input id="guiWidthInput" type="number" value="64" min="8" max="256" step="1" />
+            </label>
+
+            <label class="field">
+              <span>Height</span>
+              <input id="guiHeightInput" type="number" value="48" min="8" max="256" step="1" />
+            </label>
+          </div>
+        </section>
+
+        <section class="control-group" aria-labelledby="asset-controls-title">
+          <h2 id="asset-controls-title" class="group-title">Objects</h2>
+          <div class="button-stack">
+            <button id="addSlotButton" class="button-primary" type="button" title="Add slot">
+              Add slot
+            </button>
+
+            <button id="duplicateSelectionButton" type="button" title="Duplicate selected object" disabled>
+              Duplicate
+            </button>
+
+            <button id="deleteSelectionButton" class="button-danger" type="button" title="Delete selected object" disabled>
+              Delete
+            </button>
+
+            <button id="downloadButton" class="button-export" type="button" title="Export PNG">
+              Export PNG
+            </button>
+
+            <button id="exportLayoutButton" type="button" title="Export lightweight layout JSON">
+              Export Layout
+            </button>
+
+            <button id="saveProjectButton" type="button" title="Save editable project">
+              Save Project
+            </button>
+
+            <button id="loadProjectButton" type="button" title="Load editable project">
+              Load Project
+            </button>
+          </div>
+        </section>
+
+        <section class="control-group" aria-labelledby="template-controls-title">
+          <h2 id="template-controls-title" class="group-title">Template</h2>
+          <label class="field">
+            <span>Choose</span>
+            <select id="templateSelect"></select>
+          </label>
+
+          <button id="loadTemplateButton" type="button" title="Load selected template">
+            Load Template
+          </button>
+        </section>
+
+        <section class="control-group" aria-labelledby="image-controls-title">
+          <h2 id="image-controls-title" class="group-title">Image</h2>
+          <label class="upload-action" for="imageInput">
+            Insert image into GUI
+            <input id="imageInput" type="file" accept="image/*" />
+          </label>
+
+          <input id="projectInput" type="file" accept=".json,.mcgui.json,application/json" hidden />
+        </section>
+
+        <section class="control-group" aria-labelledby="text-controls-title">
+          <h2 id="text-controls-title" class="group-title">Text</h2>
+          <label class="field">
+            <span>Content</span>
+            <input id="textValueInput" type="text" value="Crafting" />
+          </label>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Size</span>
+              <input id="textSizeInput" type="number" value="8" min="4" max="32" step="1" />
+            </label>
+
+            <label class="field">
+              <span>Color</span>
+              <input id="textColorInput" type="color" value="#404040" />
+            </label>
+          </div>
+
+          <button id="addTextButton" type="button" title="Add text">
+            Add Text
+          </button>
+
+          <label class="upload-action" for="fontInput">
+            Import custom font
+            <input id="fontInput" type="file" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2" />
+          </label>
+
+          <div id="fontStatus" class="font-status">Font: Silkscreen</div>
+        </section>
+
+        <section class="control-group" aria-labelledby="selection-controls-title">
+          <h2 id="selection-controls-title" class="group-title">Selection</h2>
+          <div class="field-grid">
+            <label class="field">
+              <span>X</span>
+              <input id="selectionXInput" type="number" value="0" min="0" max="256" step="1" disabled />
+            </label>
+
+            <label class="field">
+              <span>Y</span>
+              <input id="selectionYInput" type="number" value="0" min="0" max="256" step="1" disabled />
+            </label>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Absolute X</span>
+              <input id="absoluteXInput" type="number" value="0" disabled />
+            </label>
+
+            <label class="field">
+              <span>Absolute Y</span>
+              <input id="absoluteYInput" type="number" value="0" disabled />
+            </label>
+          </div>
+
+          <div class="field-grid">
+            <button id="sendBackwardButton" type="button" title="Move selected images/text backward" disabled>
+              Send Backward
+            </button>
+
+            <button id="bringForwardButton" type="button" title="Move selected images/text forward" disabled>
+              Bring Forward
+            </button>
+          </div>
+
+          <label class="field">
+            <span>Slot visible in PNG</span>
+            <input id="slotVisibleInput" type="checkbox" checked disabled />
+          </label>
+
+          <label class="upload-action" for="slotIconInput">
+            Import slot icon
+            <input id="slotIconInput" type="file" accept="image/*" disabled />
+          </label>
+
+          <button id="clearSlotIconButton" type="button" title="Clear selected slot icon" disabled>
+            Clear Slot Icon
+          </button>
+
+          <div id="slotIconStatus" class="font-status">Slot icon: none</div>
+        </section>
+      </aside>
+
+      <section class="stage" aria-label="Canvas workspace">
+        <div class="stage-bar">
+          <div class="stage-title">Preview</div>
+          <div class="stage-meta">
+            <div id="stageSize" class="stage-size">64 x 48 px</div>
+            <div class="zoom-controls" aria-label="Zoom controls">
+              <button id="zoomOutButton" type="button" title="Zoom out">-</button>
+              <span id="zoomValue" class="zoom-value">Fit</span>
+              <button id="zoomInButton" type="button" title="Zoom in">+</button>
+              <button id="zoomFitButton" type="button" title="Fit to view">Fit</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="canvasWrap" class="canvas-wrap">
+          <canvas id="myCanvas" width="828" height="828"></canvas>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="inputs.js"></script>
+  <script src="code.js"></script>
+</body>
+</html>
