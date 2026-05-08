@@ -128,6 +128,7 @@ docs/screenshot.png           README screenshot
 templates/                    Template manifest and template JSON files
 LICENSE                       MIT license for the project code
 README.md                     Project documentation
+```
 
 ## Development Notes
 
